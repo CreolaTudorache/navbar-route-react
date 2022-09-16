@@ -1,31 +1,61 @@
-import React from 'react';
-import './App.css'
-import Nav from './Nav';
-import About from './About';
-import Shop from './Shop';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import React from "react";
 
-function App() {
- 
-  return (
-  <Router>
-    <div className='App'>
-      <Nav />
-      <Routes>
-        <Route path='/' exact element={Home}/>
-        <Route path='/about' element={<About />}/>
-        <Route path='/shop' element={<Shop />}/>
-      </Routes>
-    </div>
-  </Router>
+import {Avatar, Stack, Typography, Button, Container } from '@mui/material';
+import WidgetCalendar from "./widget";
+
+
+function SidebarRight() {
   
-  );
-};
-
-const Home = () => (
+return (
   <div> 
-    <h1>Home</h1>
+    <Container
+      sx={{
+        width: '30%',
+        height: '100vh',
+        margin: 0,
+        backgroundColor: '#FFFFFF',
+        border: '5px'
+      }}
+      variant="rounded"
+    >
+          <Stack 
+    direction="column"
+    justifyContent="center"
+    alignItems="center"
+    spacing={2}>
+      <Avatar sx={{ 
+        bgcolor: "black", 
+        height: 100, 
+        width: 100, 
+        fontsize: 100,  
+        }} 
+        variant="rounded">
+        N
+      </Avatar>
+      
+    </Stack>
+    <Stack direction="column"
+    justifyContent="center"
+    alignItems="center"
+    spacing={2}>
+        <Typography variant="h6">
+            Name
+        </Typography>
+        <Typography variant="h6">
+            Email
+        </Typography>
+    </Stack>
+    <Stack direction="column"
+    justifyContent="center"
+    alignItems="center"
+    spacing={2}>
+    <Button variant="contained" href="#contained-buttons">My profile</Button>
+    </Stack>
+    
+    <WidgetCalendar />
+    </Container>
   </div>
-)
+);
+}
 
-export default App;
+export default SidebarRight;
